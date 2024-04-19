@@ -1071,7 +1071,7 @@ class Family(SpecFamily):
         self._sort_pure_types()
 
         # Propagate the request / reply / recursive
-        for attr_set, struct in reversed(self.pure_nested_structs.items()):
+        for attr_set, struct in reversed(list(self.pure_nested_structs.items())):
             for _, spec in self.attr_sets[attr_set].items():
                 if 'nested-attributes' in spec:
                     child_name = spec['nested-attributes']
